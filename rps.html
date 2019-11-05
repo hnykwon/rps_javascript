@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>
-            rps_game
-        </title>
+        <title>rps_game</title>
     </head>
     <body>
         <script>
-            console.log("LOL");
+            function computerPlay() {
+                let rng = Math.random();
+                if(rng < .33){
+                    return "rock";
+                } else if(rng < .66){
+                    return "paper";
+                } else {
+                    return "scissors";
+                }
+            }
+            
+            function playRound(playerSelection, computerSelection){
+                playerSelection.toLowerCase();
+                let response = "";
+                if (playerSelection == "rock" && computerSelection == "paper") {
+                    response = "You Lose. Paper beats Rock.";
+                } else if (playerSelection == "rock" && computerSelection == "scissors") {
+                    response = "You Win! Rock beats Scissors.";
+                } else if (playerSelection == "paper" && computerSelection == "rock") {
+                    response = "You Win! Paper beats Rock.";
+                } else if (playerSelection == "paper" && computerSelection == "scissors") {
+                    response = "You Lose. Scissors beats Paper.";
+                } else if (playerSelection == "scissors" && computerSelection == "rock") {
+                    response = "You Lose. Rock beats Scissors.";
+                } else if (playerSelection == "scissors" && computerSelection == "paper") {
+                    response = "You Win! Scissors beats Paper.";
+                } else {
+                    response = "You Tied. You guys both used " + playerSelection;
+                }
+                return response;
+            }
+            
         </script>
     </body>
 </html>
